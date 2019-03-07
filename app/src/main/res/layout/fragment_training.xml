@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="fragment.TrainingFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+   <LinearLayout
+       android:layout_width="match_parent"
+        android:orientation="vertical"
+       android:layout_height="match_parent">
+       <ImageButton
+           android:id="@+id/imgButton1"
+           android:layout_marginTop="@dimen/padding_top"
+           android:layout_marginLeft="@dimen/padđing_left"
+           android:layout_marginRight="@dimen/padding_right"
+           android:layout_width="match_parent"
+           android:layout_weight="1"
+
+           android:layout_height="wrap_content" />
+       <ImageButton
+           android:id="@+id/imgButton2"
+           android:paddingTop="@dimen/padding_top"
+           android:layout_marginLeft="@dimen/padđing_left"
+           android:layout_marginRight="@dimen/padding_right"
+           android:layout_width="match_parent"
+           android:layout_weight="1"
+           android:layout_height="wrap_content" />
+       <ImageButton
+           android:id="@+id/imgButton3"
+           android:paddingTop="@dimen/padding_top"
+           android:layout_marginLeft="@dimen/padđing_left"
+           android:layout_marginRight="@dimen/padding_right"
+           android:layout_width="match_parent"
+           android:layout_weight="1"
+           android:layout_height="wrap_content" />
+       <ImageButton
+           android:id="@+id/imgButton4"
+           android:paddingTop="@dimen/padding_top"
+           android:layout_marginLeft="@dimen/padđing_left"
+           android:layout_marginRight="@dimen/padding_right"
+           android:layout_width="match_parent"
+           android:layout_weight="1"
+           android:layout_height="wrap_content" />
+       <ImageButton
+           android:id="@+id/imgButton5"
+           android:paddingTop="@dimen/padding_top"
+           android:layout_marginLeft="@dimen/padđing_left"
+           android:layout_marginRight="@dimen/padding_right"
+           android:paddingBottom="@dimen/padding_bottom"
+           android:layout_width="match_parent"
+           android:layout_weight="1"
+           android:layout_height="wrap_content" />
+   </LinearLayout>
+
+</LinearLayout>
