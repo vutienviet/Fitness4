@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import android.preference.PreferenceFragment;
+
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayoutMain;
     private ViewPager viewPagerMain;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AnhXa();
         Control();
+
     }
 
     private void Control() {
@@ -50,4 +53,5 @@ public class MainActivity extends AppCompatActivity {
         imgButton5 = findViewById(R.id.imgButton5);
 
     }
+
 }
