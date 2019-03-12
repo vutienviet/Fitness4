@@ -1,4 +1,4 @@
-package fragment;
+package com.example.zeroc.fitness;
 
 import android.content.Context;
 import android.net.Uri;

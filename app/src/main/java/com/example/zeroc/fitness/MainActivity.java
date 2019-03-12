@@ -2,7 +2,6 @@ package com.example.zeroc.fitness;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void Control() {
         FragmentManager manager = getSupportFragmentManager();
-        PagerAdapter adapter = new adapter.PagerAdapter(manager);
+        PagerAdapter adapter = new PagerAdapter(manager);
 
         viewPagerMain.setAdapter(adapter);
         tabLayoutMain.setupWithViewPager(viewPagerMain);
