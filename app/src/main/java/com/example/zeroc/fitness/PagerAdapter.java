@@ -1,12 +1,10 @@
-package adapter;
+package com.example.zeroc.fitness;
+
+
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-
-import fragment.MeFragment;
-import fragment.ReportFragment;
-import fragment.TrainingFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
