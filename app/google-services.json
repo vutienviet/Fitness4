@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "374251687332",
+    "firebase_url": "https://fitness4.firebaseio.com",
+    "project_id": "fitness4",
+    "storage_bucket": "fitness4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374251687332:android:7623f304c2ab752b",
+        "android_client_info": {
+          "package_name": "com.example.zeroc.fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374251687332-gi9isss1l5d8e0mp1onbkk23o059589d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zeroc.fitness",
+            "certificate_hash": "a99f650e8ea7497d12407edb490dea1adb5137be"
+          }
+        },
+        {
+          "client_id": "374251687332-f56av24uemv1bugcg5d38hv5mnjk63sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQQ5iBFgYzzIh0CPXyl6FqtfIWluDBvYE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374251687332-f56av24uemv1bugcg5d38hv5mnjk63sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
