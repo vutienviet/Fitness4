@@ -1,14 +1,11 @@
 package com.example.zeroc.fitness;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.zeroc.fitness.R;
 
 
 public class MeFragment extends Fragment {
@@ -29,9 +26,10 @@ public class MeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this com.example.zeroc.fitness.fragment
         return inflater.inflate(R.layout.fragment_me, container, false);
     }
+
 
 //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
@@ -59,7 +57,7 @@ public class MeFragment extends Fragment {
 //
 //    /**
 //     * This interface must be implemented by activities that contain this
-//     * fragment to allow an interaction in this fragment to be communicated
+//     * com.example.zeroc.fitness.fragment to allow an interaction in this com.example.zeroc.fitness.fragment to be communicated
 //     * to the activity and potentially other fragments contained in that
 //     * activity.
 //     * <p>

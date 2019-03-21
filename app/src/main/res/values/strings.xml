@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">Fitness</string>
+    <string name="Kalo">Kalo</string>
+    <string name="total">Total</string>
+    <string name="average">Average</string>
+    <string name="goal">Goal</string>
+    <string name="export_summary">Save your data in a .csv file</string>
+    <string name="export_title">Export/Backup</string>
+    <string name="import_summary">Imports previously saved data</string>
+    <string name="import_title">Import/Restore</string>
+    <string name="notification">Show notification</string>
+    <string name="set_goal">Set goal</string>
+    <string name="set_step_size">Set step size</string>
+    <string name="RateUs">Rate Us</string>
+    <string name="Feedback">Feed Back</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

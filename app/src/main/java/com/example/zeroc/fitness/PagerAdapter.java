@@ -4,6 +4,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.zeroc.fitness.MeFragment;
+import com.example.zeroc.fitness.ReportFragment;
+import com.example.zeroc.fitness.TrainingFragment;
+
+
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
 
