@@ -12,6 +12,7 @@ import com.example.zeroc.fitness.TrainingFragment;
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
 
+
     public PagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -50,6 +51,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return 3;
+
+    }
+    public void setUpTabIcon(){
 
     }
 

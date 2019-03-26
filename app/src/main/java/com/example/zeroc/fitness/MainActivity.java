@@ -11,23 +11,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayoutMain;
     private ViewPager viewPagerMain;
+    private ListView lvMain;
     TabItem tabTraining;
     TabItem tabReport;
     TabItem tabMe;
     private FirebaseAnalytics mFirebaseAnalytics;
-
-//    Button imgButton1;
-//    Button imgButton2;
-//    Button imgButton3;
-//    Button imgButton4;
-//    Button imgButton5;
+    private int[] tabIcons = {
+            R.drawable.icon_training,
+            R.drawable.icon_report,
+            R.drawable.icon_me
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,13 +39,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AnhXa();
         Control();
-        // fragment manager = getFragmentManager
-//        FragmentTransaction fragmentTransaction = getSupportFragmentManager();
-
-
-
-
-
     }
 
     private void Control() {
@@ -54,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
         viewPagerMain.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayoutMain));
         tabLayoutMain.setTabsFromPagerAdapter(adapter);
         tabLayoutMain.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPagerMain));
+        tabLayoutMain.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayoutMain.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayoutMain.getTabAt(2).setIcon(tabIcons[2]);
+
+
+
+
 
     }
 
@@ -63,11 +67,6 @@ public class MainActivity extends AppCompatActivity {
         tabTraining = findViewById(R.id.tabTraining);
         tabReport = findViewById(R.id.tabReport);
         tabMe = findViewById(R.id.tabMe);
-//        imgButton1 = findViewById(R.id.imgButton1);
-//        imgButton2 =findViewById(R.id.imgButton2);
-//        imgButton3 =findViewById(R.id.imgButton3);
-//        imgButton4 =findViewById(R.id.imgButton4);
-//        imgButton5 =findViewById(R.id.imgButton5);
-
+        lvMain = findViewById(R.id.lvButton1);
     }
-}
+  }

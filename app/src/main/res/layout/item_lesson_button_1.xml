@@ -8,8 +8,8 @@
     <TextView
         android:id="@+id/tvLessonName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
     <ImageView
         android:id="@+id/imgGiftLessonAction"
         android:src="@drawable/ic_launcher_background"
