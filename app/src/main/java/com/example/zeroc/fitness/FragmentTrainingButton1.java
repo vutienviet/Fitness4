@@ -31,8 +31,7 @@ public class FragmentTrainingButton1 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 //        return inflater.inflate(R.layout.fragment_training_button_1 , container , false);
        View view = inflater.inflate(R.layout.fragment_training_button_1 , container ,false);
-       mRecyclerView = view.findViewById(R.id.mRecyclerViewItemButton1);
-       mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         fakeData();
        return view;
     }
