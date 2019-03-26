@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvLessonName"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content" />
-    <ImageView
-        android:id="@+id/imgGiftLessonAction"
-        android:src="@drawable/ic_launcher_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
-</LinearLayout>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Title"
+        android:id="@+id/tv_LessionName"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imgGiftLessonAction"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/tv_durations"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Durations: ..."
+        android:id="@+id/tv_durations"
+        android:layout_alignBottom="@+id/imgGiftLessonAction"
+        android:layout_alignLeft="@+id/tv_LessionName"
+        android:layout_alignStart="@+id/tv_LessionName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="5dp" />
+
+    <ImageView
+        android:id="@+id/imgGiftLessonAction"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_launcher_background" />
+</RelativeLayout>
