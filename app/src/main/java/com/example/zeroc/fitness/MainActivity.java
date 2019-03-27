@@ -9,9 +9,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayoutMain;
     private ViewPager viewPagerMain;
     private ListView lvMain;
+
     TabItem tabTraining;
     TabItem tabReport;
     TabItem tabMe;
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AnhXa();
         Control();
+
     }
 
     private void Control() {
@@ -62,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
+
         tabLayoutMain = findViewById(R.id.tabLayoutMain);
         viewPagerMain = findViewById(R.id.viewpapperpMain);
         tabTraining = findViewById(R.id.tabTraining);

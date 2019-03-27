@@ -21,28 +21,30 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/tabcolor"
-        app:tabTextColor="@color/colorText"
         app:tabBackground="@color/colorPrimary"
-        app:tabSelectedTextColor="@color/tabcolor">
+        app:tabSelectedTextColor="@color/tabcolor"
+        app:tabTextColor="@color/colorText">
 
         <android.support.design.widget.TabItem
             android:id="@+id/tabTraining"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Training"
-            android:layout_height="wrap_content" />
+            android:text="Training" />
+
         <android.support.design.widget.TabItem
             android:id="@+id/tabReport"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Report"
-            android:layout_height="wrap_content" />
+            android:text="Report" />
+
         <android.support.design.widget.TabItem
             android:id="@+id/tabMe"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ME"
-            android:layout_height="wrap_content" />
+            android:text="ME" />
 
     </android.support.design.widget.TabLayout>
 

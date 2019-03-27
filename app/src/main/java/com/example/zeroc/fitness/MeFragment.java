@@ -28,6 +28,7 @@ public class MeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this com.example.zeroc.fitness.fragment
         return inflater.inflate(R.layout.fragment_me, container, false);
+
     }
 
 

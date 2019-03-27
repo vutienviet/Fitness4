@@ -3,21 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:weightSum="3"
     android:orientation="horizontal"
     android:layout_height="match_parent">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_weight="1"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Title"
-        android:id="@+id/tv_LessionName"
+        android:id="@+id/tv_ReportName"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/imgGiftLessonAction"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/tv_durations"
+        android:layout_above="@+id/tv_ReportDurations"
         android:layout_margin="5dp" />
 
     <TextView
@@ -26,19 +31,21 @@
         android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Durations: ..."
-        android:id="@+id/tv_durations"
+        android:id="@+id/tv_ReportDurations"
         android:layout_alignBottom="@+id/imgGiftLessonAction"
         android:layout_alignLeft="@+id/tv_LessionName"
         android:layout_alignStart="@+id/tv_LessionName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp" />
+</LinearLayout>
+
 
     <ImageView
-        android:id="@+id/imgGiftLessonAction"
+        android:id="@+id/imgGiftReportAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_margin="5dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
