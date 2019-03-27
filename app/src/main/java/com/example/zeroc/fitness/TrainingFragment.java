@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,8 @@ import com.example.zeroc.fitness.R;
 
 public class TrainingFragment extends Fragment {
 
-
+    ViewPager mviewPager;
+    PagerAdapter mPagerAdapter;
     private OnFragmentManager mListener;
     Button imgButton1;
     Button imgButton2;
@@ -44,16 +47,25 @@ public class TrainingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_training , container , false);
 
+
         imgButton1 = view.findViewById(R.id.imgButton1);
         imgButton2 =view.findViewById(R.id.imgButton2);
         imgButton3 =view.findViewById(R.id.imgButton3);
         imgButton4 = view.findViewById(R.id.imgButton4);
         imgButton5 = view.findViewById(R.id.imgButton5);
 
+
+
         imgButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity() , "Click" , Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity() , "Click" , Toast.LENGTH_LONG).show();
+                FragmentTrainingButton1 fragmentTrainingButton1 = new FragmentTrainingButton1();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.viewpapperpMain,fragmentTrainingButton1);
+                transaction.addToBackStack(null);
+                transaction.commit();
+//                mviewPager.setCurrentItem(1);
             }
         });
         return view;

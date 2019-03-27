@@ -65,8 +65,6 @@ public class ListviewLessionAdapter extends BaseAdapter {
         holder.tvnameLession.setText(item.getNameLession());
         holder.tvDurations.setText("durations : " + item.getDurations());
 
-
-
         return convertView;
     }
 

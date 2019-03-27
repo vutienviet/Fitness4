@@ -25,7 +25,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayoutMain;
-    private ViewPager viewPagerMain;
+    public ViewPager viewPagerMain;
     private ListView lvMain;
 
     TabItem tabTraining;

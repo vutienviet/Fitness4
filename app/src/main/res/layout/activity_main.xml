@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/tabcolor"
-        app:tabBackground="@color/colorPrimary"
+        app:tabBackground="@color/common_google_signin_btn_text_dark_default"
         app:tabSelectedTextColor="@color/tabcolor"
         app:tabTextColor="@color/colorText">
 
