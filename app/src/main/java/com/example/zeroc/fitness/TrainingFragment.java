@@ -60,11 +60,8 @@ public class TrainingFragment extends Fragment {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(getActivity() , "Click" , Toast.LENGTH_LONG).show();
-                FragmentTrainingButton1 fragmentTrainingButton1 = new FragmentTrainingButton1();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.viewpapperpMain,fragmentTrainingButton1);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Intent i=new Intent(getContext(),LessionActivity.class);
+                startActivity(i);
 //                mviewPager.setCurrentItem(1);
             }
         });

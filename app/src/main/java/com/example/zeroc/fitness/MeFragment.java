@@ -1,15 +1,35 @@
 package com.example.zeroc.fitness;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+
+import java.util.ArrayList;
 
 
-public class MeFragment extends Fragment {
-
+public class MeFragment extends Fragment implements OnChartValueSelectedListener {
+    private PieChart mChart;
+    private TextView tv1;
+    private TextView tv2;
+    private Button btn1;
+    private Button btn2;
     public MeFragment() {
         // Required empty public constructor
     }
@@ -27,8 +47,72 @@ public class MeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this com.example.zeroc.fitness.fragment
-        return inflater.inflate(R.layout.fragment_me, container, false);
 
+
+
+        View view = inflater.inflate(R.layout.fragment_me, container, false);
+        tv1 = view.findViewById(R.id.tvme);
+        tv2 = view.findViewById(R.id.tvme1);
+        btn1= view.findViewById(R.id.Buttonme);
+        mChart = view.findViewById(R.id.piechart);
+        mChart.setRotationEnabled(true);
+        mChart.setDescription(new Description());
+        mChart.setHoleRadius(35f);
+        mChart.setTransparentCircleAlpha(0);
+        mChart.setCenterText("Kalo");
+        mChart.setCenterTextSize(10);
+        mChart.setDrawEntryLabels(true);
+        mChart.setOnChartValueSelectedListener(this);
+        addDataSet(mChart);
+        return view;
+
+    }
+
+    @Override
+    public void onValueSelected(Entry e, Highlight h) {
+        Toast.makeText(getContext(),"Value: "
+                + e.getY()
+                + ", index: "
+                + h.getX()
+                + ", DataSet index: "
+                + h.getDataSetIndex(),Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected() {
+
+    }
+    private static void addDataSet(PieChart pieChart) {
+        ArrayList<PieEntry> yEntrys = new ArrayList<>();
+        ArrayList<String> xEntrys = new ArrayList<>();
+        float[] yData = { 25, 40, 70 };
+        String[] xData = { "January", "February", "January" };
+
+        for (int i = 0; i < yData.length;i++){
+            yEntrys.add(new PieEntry(yData[i],i));
+        }
+        for (int i = 0; i < xData.length;i++){
+            xEntrys.add(xData[i]);
+        }
+
+        PieDataSet pieDataSet=new PieDataSet(yEntrys,"Bài Tập");
+        pieDataSet.setSliceSpace(2);
+        pieDataSet.setValueTextSize(12);
+
+        ArrayList<Integer> colors=new ArrayList<>();
+        colors.add(Color.GRAY);
+        colors.add(Color.BLUE);
+        colors.add(Color.RED);
+
+        pieDataSet.setColors(colors);
+
+        Legend legend=pieChart.getLegend();
+        legend.setForm(Legend.LegendForm.CIRCLE);
+        legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
+
+        PieData pieData=new PieData(pieDataSet);
+        pieChart.setData(pieData);
+        pieChart.invalidate();
     }
 
 
