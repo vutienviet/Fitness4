@@ -20,6 +20,7 @@ public class LessionActivity extends AppCompatActivity {
         ArrayList<Item> listItem = getListData();
         lv1.setAdapter(new ListviewLessionAdapter(this , listItem));
 
+
     }
     private ArrayList<Item> getListData(){
         ArrayList<Item> list = new ArrayList<Item>();
