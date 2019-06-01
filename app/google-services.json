@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "374251687332-vm3l888mcipdic4e8rdpl6g1hpioki68.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zeroc.fitness",
+            "certificate_hash": "849dc94c4cb7f726e525a2ec935b52bc572ccd73"
+          }
+        },
+        {
           "client_id": "374251687332-f56av24uemv1bugcg5d38hv5mnjk63sf.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -33,20 +41,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "374251687332-f56av24uemv1bugcg5d38hv5mnjk63sf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

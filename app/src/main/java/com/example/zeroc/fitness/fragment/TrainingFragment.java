@@ -1,25 +1,20 @@
-package com.example.zeroc.fitness;
+package com.example.zeroc.fitness.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
+import com.example.zeroc.fitness.LessionActivity;
 import com.example.zeroc.fitness.R;
 
 public class TrainingFragment extends Fragment {
 
-    ViewPager mviewPager;
-    PagerAdapter mPagerAdapter;
+//    ViewPager mviewPager;
+//    PagerAdapter mPagerAdapter;
     private OnFragmentManager mListener;
     Button imgButton1;
     Button imgButton2;
@@ -45,7 +40,7 @@ public class TrainingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_training , container , false);
+        View view = inflater.inflate( R.layout.fragment_training , container , false);
 
 
         imgButton1 = view.findViewById(R.id.imgButton1);
@@ -60,7 +55,7 @@ public class TrainingFragment extends Fragment {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(getActivity() , "Click" , Toast.LENGTH_LONG).show();
-                Intent i=new Intent(getContext(),LessionActivity.class);
+                Intent i=new Intent(getContext(), LessionActivity.class);
                 startActivity(i);
 //                mviewPager.setCurrentItem(1);
             }

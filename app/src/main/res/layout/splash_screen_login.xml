@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:gravity="center"
     android:background="@drawable/background_colors"
-    tools:context=".splash"
+    tools:context=".model.splash"
     android:layout_height="match_parent">
     
 

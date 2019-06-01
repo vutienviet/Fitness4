@@ -1,4 +1,4 @@
-package com.example.zeroc.fitness;
+package com.example.zeroc.fitness.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.zeroc.fitness.model.Item2;
+import com.example.zeroc.fitness.R;
 
 import java.util.ArrayList;
 
@@ -44,7 +47,7 @@ public class ListViewReportAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
        ViewHolder viewHolder;
         if (convertView == null){
-            convertView = mLayoutInflater.inflate(R.layout.item_report , null);
+            convertView = mLayoutInflater.inflate( R.layout.item_report , null);
             viewHolder = new ListViewReportAdapter.ViewHolder();
             viewHolder.imageView2 = convertView.findViewById(R.id.imgGiftReportAction);
             viewHolder.tvReportLession = convertView.findViewById(R.id.tv_ReportName);

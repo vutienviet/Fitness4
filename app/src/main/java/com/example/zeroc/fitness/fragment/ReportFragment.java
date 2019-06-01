@@ -1,4 +1,4 @@
-package com.example.zeroc.fitness;
+package com.example.zeroc.fitness.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,6 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import com.example.zeroc.fitness.model.Item2;
+import com.example.zeroc.fitness.R;
+import com.example.zeroc.fitness.adapter.ListViewReportAdapter;
 
 import java.util.ArrayList;
 
@@ -21,7 +25,7 @@ public class ReportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this com.example.zeroc.fitness.fragment
-        View view = inflater.inflate(R.layout.fragment_report, container, false);
+        View view = inflater.inflate( R.layout.fragment_report, container, false);
         ArrayList<Item2> listItem2 = getListData();
         listView = view.findViewById(R.id.lvReport);
         listView.setAdapter(new ListViewReportAdapter(getActivity() , listItem2));

@@ -1,4 +1,4 @@
-package com.example.zeroc.fitness;
+package com.example.zeroc.fitness.model;
 
 public class Item2 {
     private String nameReport;

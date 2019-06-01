@@ -1,8 +1,7 @@
-package com.example.zeroc.fitness;
+package com.example.zeroc.fitness.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zeroc.fitness.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -50,7 +50,7 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
 
 
 
-        View view = inflater.inflate(R.layout.fragment_me, container, false);
+        View view = inflater.inflate( R.layout.fragment_me, container, false);
         tv1 = view.findViewById(R.id.tvme);
         tv2 = view.findViewById(R.id.tvme1);
         btn1= view.findViewById(R.id.Buttonme);

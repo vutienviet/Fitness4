@@ -14,6 +14,9 @@
     <string name="RateUs">Rate Us</string>
     <string name="Feedback">Feed Back</string>
 
+    <string name="Training">Training</string>
+    <string name="Report">Report</string>
+    <string name="Me">Me</string>
 
 
 </resources>

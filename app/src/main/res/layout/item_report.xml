@@ -40,7 +40,6 @@
         android:layout_margin="5dp" />
 </LinearLayout>
 
-
     <ImageView
         android:id="@+id/imgGiftReportAction"
         android:layout_width="match_parent"
