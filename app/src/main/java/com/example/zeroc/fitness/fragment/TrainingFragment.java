@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.zeroc.fitness.LessionActivity;
+import com.example.zeroc.fitness.ABSBeginActivity;
 import com.example.zeroc.fitness.R;
 
 public class TrainingFragment extends Fragment {
@@ -55,7 +55,7 @@ public class TrainingFragment extends Fragment {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(getActivity() , "Click" , Toast.LENGTH_LONG).show();
-                Intent i=new Intent(getContext(), LessionActivity.class);
+                Intent i=new Intent(getContext(), ABSBeginActivity.class);
                 startActivity(i);
 //                mviewPager.setCurrentItem(1);
             }
