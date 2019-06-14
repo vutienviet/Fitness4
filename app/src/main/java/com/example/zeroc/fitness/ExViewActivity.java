@@ -12,8 +12,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.zeroc.fitness.model.Common;
 
-import Database.WorkoutDB;
-
 public class ExViewActivity extends AppCompatActivity {
 
     int image_id;
