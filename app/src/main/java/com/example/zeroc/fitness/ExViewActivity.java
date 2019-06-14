@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.zeroc.fitness.model.Common;
 
+import Database.DatabaseExView;
+
 public class ExViewActivity extends AppCompatActivity {
 
     int image_id;
@@ -22,13 +24,13 @@ public class ExViewActivity extends AppCompatActivity {
     // check btnStart's state
     boolean isRunning = false;
 
-    WorkoutDB workoutDB;
+    DatabaseExView workoutDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_ex_view );
-        workoutDB = new WorkoutDB( this );
+        workoutDB = new DatabaseExView( this );
 
         timer = findViewById( R.id.timer );
         title = findViewById( R.id.titleEx );
