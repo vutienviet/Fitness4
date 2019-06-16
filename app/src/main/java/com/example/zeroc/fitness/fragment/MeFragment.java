@@ -3,6 +3,7 @@ package com.example.zeroc.fitness.fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,15 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
         tv1 = view.findViewById(R.id.tvme);
         tv2 = view.findViewById(R.id.tvme1);
         btn1= view.findViewById(R.id.Buttonme);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment childFragment = new FragmentMyWork();
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame_container, childFragment).commit();
+
+            }
+        });
         mChart = view.findViewById(R.id.piechart);
         mChart.setRotationEnabled(true);
         mChart.setDescription(new Description());
@@ -65,6 +75,7 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
         mChart.setOnChartValueSelectedListener(this);
         addDataSet(mChart);
         return view;
+
 
     }
 
