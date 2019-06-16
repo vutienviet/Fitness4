@@ -5,21 +5,38 @@ import java.io.Serializable;
 public class Ex implements Serializable {
 
     private int exID;
+    private int image;
     private String exTitle;
     private String exContent;
 
     public Ex() {
     }
 
-    public Ex(int exID, String exTitle, String exContent) {
-        this.exID = exID;
+
+    public Ex(int image, String exTitle) {
+        this.image = image;
         this.exTitle = exTitle;
-        this.exContent = exContent;
     }
 
-    public Ex(String exTitle, String exContent) {
+    public Ex(String exTitle) {
         this.exTitle = exTitle;
-        this.exContent = exContent;
+    }
+
+    public Ex(int exID, int image, String exTitle) {
+        this.exID = exID;
+        this.image = image;
+        this.exTitle = exTitle;
+    }
+
+    public Ex(int exID, byte parseByte, String string, String string1) {
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public int getExID() {

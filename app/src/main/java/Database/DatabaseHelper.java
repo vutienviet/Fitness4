@@ -7,89 +7,81 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.zeroc.fitness.model.Ex;
+import com.example.zeroc.fitness.model.Item;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = "SLITe";
-    private static final int DATABASE_VER = 1;
-    private static final String DATABASE_NAME = "EX_Manager";
-    private static final String TABLE_EX = "Ex";
-    private static final String COLUMN_EX_ID = "Ex_Id";
-    private static final String COLUMN_EX_TITLE = "Ex_Title";
-    private static final String COLUMN_EX_CONTENT = "Ex_Content";
+    private final String TAG = "DBManager";
+    private static final String DATABASE_NAME = "EX_Manager.db";
+    private static final String TABLE_NAME = "EX";
+    private static final String ID = "id";
+    private static final String NAME = "name";
+    private static int VERSION = 1;
 
-    public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super( context, name, factory, version );
+    private Context context;
+    private String SQLQuery = "CREATE TABLE " + TABLE_NAME + " (" +
+            ID + " integer primary key, " +
+            NAME + " TEXT)";
+
+
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, VERSION);
+        this.context = context;
+        Log.d(TAG, "DBManager: ");
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-
-        Log.i( TAG , "Oncreat" );
-
-        String script = "CREATE TABLE " + TABLE_EX + "(" + COLUMN_EX_ID+"INTEGER PRIMARY KEY," + COLUMN_EX_TITLE + "TEXT,"
-                        +COLUMN_EX_CONTENT + "TEXT" + ")";
-        db.execSQL( script );
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL(SQLQuery);
+        Log.d(TAG, "onCreate: ");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.i(TAG , "OnUpgrade..");
-        db.execSQL( "DROP TABLE IF EXISTS " + TABLE_EX );
-        onCreate( db );
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        Log.d(TAG, "onUpgrade: ");
     }
 
-    public void CreateDefaultExIfNeed() {
-        int count = this.getExCount();
-        if (count == 0){
-            Ex ex1 = new Ex( "Tottoro1" , "Totoro is dancing" );
-            Ex ex2 = new Ex( "Tottoro2" , "Totoro is dancing" );
+    public void addEx(Item item) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(NAME, item.getName());
 
-            this.addEx(ex1);
-            this.addEx(ex2);
-        }
+        db.insert(TABLE_NAME, null, values);
+        db.close();
+        Log.d(TAG, "addStudent Successfuly");
     }
 
-    private void addEx(Ex ex) {
+    public List<Item> getAllEx() {
+        List<Item> listEx = new ArrayList<>();
+
+        String selectQuery = "SELECT * FROM " + TABLE_NAME;
 
         SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        if (cursor.moveToFirst()) {
+            do {
+                Item item = new Item();
+                item.setId(cursor.getInt(0));
+                item.setName(cursor.getString(1)+"");
 
-        ContentValues values = new ContentValues(  );
-        values.put( COLUMN_EX_TITLE , ex.getExTitle() );
-        values.put( COLUMN_EX_CONTENT , ex.getExContent() );
+                listEx.add(item);
 
-//        chen du lieu vao bang
-        db.insert( TABLE_EX , null , values );
-
+            } while (cursor.moveToNext());
+        }
         db.close();
+        return listEx;
     }
-
-    public int getExCount(){
-        String countScript = "SELECT * FROM " + TABLE_EX;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery( countScript , null );
-
-        int count = cursor.getCount();
-        cursor.close();
-
-        return count;
+    public int updateEx(Item item){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(NAME,item.getName());
+        return db.update(TABLE_NAME,contentValues,ID+"=?",new String[]{String.valueOf(item.getId())});
     }
-
-    public Ex getEx(int id){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query( TABLE_EX , new String[]{
-                COLUMN_EX_ID , COLUMN_EX_TITLE , COLUMN_EX_CONTENT
-        } , COLUMN_EX_ID + " =? " , new String[]{
-                String.valueOf( id )
-        } , null ,null , null , null );
-        if (cursor != null )
-            cursor.moveToFirst();
-
-            Ex ex = new Ex( Integer.parseInt( cursor.getString( 0 ) ) ,
-                    cursor.getString( 1 ) , cursor.getString( 2 ));
-
-            return ex;
-
+    public int deleteEx(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME,ID+"=?",new String[] {String.valueOf(id)});
     }
 }

@@ -87,6 +87,13 @@ class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClick
                     intent.putExtra("image_id",listEx.get(position).getImg_id());
                     intent.putExtra("name",listEx.get(position).getName());
                     view.getContext().startActivity(intent);
+
+//                  DatabaseHelper  db = new DatabaseHelper( context );
+//                    db.CreateDefaultExIfNeed();
+//                    List<Item> list = db.getAllEx();
+//                    for (int i = 0 ; i< list.size() ; i++){
+//                        Toast.makeText(context, " "+list.get(i).getName(), Toast.LENGTH_SHORT).show();
+//                    }
                         Toast.makeText(context, " "+listEx.get(position), Toast.LENGTH_SHORT).show();
                 }
             } );

@@ -49,10 +49,26 @@ public class Item {
 
     private int img_id;
     private String name;
+    private int id;
 
     public Item(int img_id, String name) {
         this.img_id = img_id;
         this.name = name;
+    }
+
+    public Item(String name) {
+        this.name = name;
+    }
+
+    public Item() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getImg_id() {
