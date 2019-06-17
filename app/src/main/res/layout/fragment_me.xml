@@ -8,12 +8,15 @@
     tools:context=".fragment.MeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_weight="2"
     android:id="@+id/frame_container"
     android:layout_height="wrap_content">
+
 <LinearLayout
+    android:id="@+id/lnear"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:weightSum="5"
@@ -42,14 +45,23 @@
             android:background="@drawable/custom_button_2"
             android:text="+" />
     </LinearLayout>
+
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/recyclerViewListExPicked"
+       android:layout_gravity="center"
+       android:foregroundGravity="center"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </android.support.v7.widget.RecyclerView>
     <TextView
         android:layout_width="match_parent"
         android:text="Danh sách bài tập cá nhân"
         android:textSize="20dp"
         android:textColor="@color/red"
         android:layout_height="wrap_content" />
-
 </LinearLayout>
+
 
 
 </FrameLayout>

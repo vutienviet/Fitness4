@@ -7,12 +7,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.zeroc.fitness.model.DbResponse;
 import com.example.zeroc.fitness.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+
 
     private final String TAG = "DBManager";
     private static final String DATABASE_NAME = "EX_Manager.db";
@@ -74,6 +76,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return listEx;
     }
+
+    public DbResponse getData(){
+        DbResponse obj = new DbResponse();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + TABLE_NAME, null);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            obj.name = cursor.getString(cursor.getColumnIndex(NAME));
+        }
+        cursor.close();
+        return obj;
+    }
     public int updateEx(Item item){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -83,5 +97,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public int deleteEx(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME,ID+"=?",new String[] {String.valueOf(id)});
+    }
+
+    public Cursor searchEx(String text){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "Select " +NAME+" from " + TABLE_NAME+" WHERE "+NAME+" Like '%"+text+"%'";
+        Cursor cursor = db.rawQuery( query , null );
+        return cursor;
     }
 }

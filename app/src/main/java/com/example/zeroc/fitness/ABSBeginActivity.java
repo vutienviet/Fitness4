@@ -59,55 +59,17 @@ public class ABSBeginActivity extends AppCompatActivity {
         list = db.getAllEx();
         for (int i = 0 ; i <list.size() ; i++){
             if (list.get( i ).getId() == 1){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
+                exerciseList.add( new Item( R.drawable.totoro1 , list.get( i ).getName() ) );
             }
             if (list.get( i ).getId() == 2){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
+                exerciseList.add( new Item( R.drawable.totoro1 , list.get( i ).getName() ) );
             }
             if (list.get( i ).getId() == 3){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
+                exerciseList.add( new Item( R.drawable.totoro1 , list.get( i ).getName() ) );
             }
             if (list.get( i ).getId() == 4){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
+                exerciseList.add( new Item( R.drawable.totoro1 , list.get( i ).getName() ) );
             }
-            if (list.get( i ).getId() == 4){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
-            }
-            if (list.get( i ).getId() == 4){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
-            }
-            if (list.get( i ).getId() == 4){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
-            }
-            if (list.get( i ).getId() == 4){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
-            } if (list.get( i ).getId() == 4){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
-            }
-            if (list.get( i ).getId() == 4){
-                exerciseList.add( new Item( R.drawable.totoro1 , "totoro1" ) );
-            }
-
-
-
         }
-
-
-//        exerciseList.add( new Item( R.drawable.totoro1 , "Tottoro" ) );
-
-//        Bitmap bitmap = BitmapFactory.decodeResource( getResources() , R.drawable.totoro1 );
-//        ByteArrayOutputStream bos = new ByteArrayOutputStream(  );
-//        bitmap.compress( Bitmap.CompressFormat.PNG , 100 , bos );
-//        byte[] img = bos.toByteArray();
-
-//        databaseHelper.addEx( new Ex( bitmap , "totoro" ) );
-//        exerciseList.add( new Ex( R.drawable.giphy , "Tottoro" ) );
-//        exerciseList.add( new Ex( R.drawable.gym_dumble , "Tottoro" ) );
-//        exerciseList.add( new Ex( R.drawable.l1 , "Tottoro" ) );
-//        exerciseList.add( new Ex( R.drawable.squat , "Tottoro" ) );
-//        exerciseList.add( new Ex( R.drawable.totoro1 , "Tottoro" ) );
-//        exerciseList.add( new Ex( R.drawable.totoro1 , "Tottoro" ) );
-//        exerciseList.add( new Ex( R.drawable.totoro1 , "Tottoro" ) );
-
     }
 }
