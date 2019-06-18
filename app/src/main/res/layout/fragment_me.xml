@@ -78,8 +78,13 @@
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/piechart"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:layout_marginTop="20dp"
         />
+    <Button
+        android:id="@+id/btnYoutube"
+        android:text="Online Excercises"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
