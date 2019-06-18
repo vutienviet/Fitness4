@@ -1,5 +1,6 @@
 package com.example.zeroc.fitness.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zeroc.fitness.LessionActivity;
 import com.example.zeroc.fitness.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -31,6 +33,7 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
     private TextView tv2;
     private Button btn1;
     private Button btn2;
+    private Button btnOnline;
     public MeFragment() {
         // Required empty public constructor
     }
@@ -55,6 +58,7 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
         tv1 = view.findViewById(R.id.tvme);
         tv2 = view.findViewById(R.id.tvme1);
         btn1= view.findViewById(R.id.Buttonme);
+        btnOnline = view.findViewById( R.id.btnYoutube );
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +78,15 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
         mChart.setDrawEntryLabels(true);
         mChart.setOnChartValueSelectedListener(this);
         addDataSet(mChart);
+        btnOnline.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( getContext() , LessionActivity.class );
+                startActivity( intent );
+            }
+        } );
         return view;
+
 
 
     }
