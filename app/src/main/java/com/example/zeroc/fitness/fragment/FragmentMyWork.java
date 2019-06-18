@@ -61,17 +61,29 @@ public class FragmentMyWork extends Fragment {
         listitem = (ArrayList<Item>) db.getAllEx();
 
         for (int i = 0; i < listitem.size(); i++) {
-            if (listitem.get( i ).getId() == 1) {
-                excercisesList.add( new Item( R.drawable.totoro1, listitem.get( i ).getName() ) );
+            if (listitem.get( i ).getId() == 1){
+                excercisesList.add( new Item( R.drawable.totoro1 , listitem.get( i ).getName() ) );
             }
-            if (listitem.get( i ).getId() == 2) {
-                excercisesList.add( new Item( R.drawable.totoro1, listitem.get( i ).getName() ) );
+            if (listitem.get( i ).getId() == 2){
+                excercisesList.add( new Item( R.drawable.giphy , listitem.get( i ).getName() ) );
             }
-            if (listitem.get( i ).getId() == 3) {
-                excercisesList.add( new Item( R.drawable.totoro1, listitem.get( i ).getName() ) );
+            if (listitem.get( i ).getId() == 3){
+                excercisesList.add( new Item( R.drawable.gym_dumble , listitem.get( i ).getName() ) );
             }
-            if (listitem.get( i ).getId() == 4) {
-                excercisesList.add( new Item( R.drawable.totoro1, listitem.get( i ).getName() ) );
+            if (listitem.get( i ).getId() == 4){
+                excercisesList.add( new Item( R.drawable.dumbell_hand , listitem.get( i ).getName() ) );
+            }
+            if (listitem.get( i ).getId() == 5){
+                excercisesList.add( new Item( R.drawable.caldio1 , listitem.get( i ).getName() ) );
+            }
+            if (listitem.get( i ).getId() == 6){
+                excercisesList.add( new Item( R.drawable.abs , listitem.get( i ).getName() ) );
+            }
+            if (listitem.get( i ).getId() == 7){
+                excercisesList.add( new Item( R.drawable.rower_ani_4 , listitem.get( i ).getName() ) );
+            }
+            if (listitem.get( i ).getId() == 8){
+                excercisesList.add( new Item( R.drawable.l1 , listitem.get( i ).getName() ) );
             }
         }
     }
