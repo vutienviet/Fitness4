@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.example.zeroc.fitness.fragment.FragmentMyWork;
 import com.example.zeroc.fitness.fragment.MeFragment;
 import com.example.zeroc.fitness.fragment.ReportFragment;
 import com.example.zeroc.fitness.fragment.TrainingFragment;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayoutMain;
     public ViewPager viewPagerMain;
     private ListView lvMain;
+    FragmentMyWork fragment1;
+    MeFragment fragment2;
 
 //    TabItem tabTraining;
 //    TabItem tabReport;
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AnhXa();
+
+        fragment2 = MeFragment.getInstance();
+        fragment1 = FragmentMyWork.getInstance();
 
 
     }

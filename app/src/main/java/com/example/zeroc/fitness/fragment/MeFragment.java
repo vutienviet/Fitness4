@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,9 @@ import android.widget.Toast;
 
 import com.example.zeroc.fitness.LessionActivity;
 import com.example.zeroc.fitness.R;
+import com.example.zeroc.fitness.adapter.RecyclerviewAdapter;
+import com.example.zeroc.fitness.model.Item;
+import com.example.zeroc.fitness.model.OnClickItemTab1;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -27,13 +32,22 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import java.util.ArrayList;
 
 
-public class MeFragment extends Fragment implements OnChartValueSelectedListener {
+public class MeFragment extends Fragment implements OnChartValueSelectedListener , OnClickItemTab1 {
     private PieChart mChart;
     private TextView tv1;
     private TextView tv2;
     private Button btn1;
+    RecyclerView.LayoutManager layoutManager;
     private Button btn2;
     private Button btnOnline;
+
+    RecyclerviewAdapter adapter;
+    ArrayList<Item> excercisesList = new ArrayList <Item>();
+    ArrayList<Item> listitem = new ArrayList<Item>();
+    RecyclerView mRecyclerView;
+
+
+    OnClickItemTab1 onClickItemTab1 = this;
     public MeFragment() {
         // Required empty public constructor
     }
@@ -46,6 +60,13 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
 //            mParam2 = getArguments().getString(ARG_PARAM2);
 //        }
 //    }
+
+    public OnClickItemTab1 getOnClickItemTab1() {
+        return onClickItemTab1;
+    }
+    public static MeFragment getInstance(){
+        return new MeFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -136,6 +157,17 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
         PieData pieData=new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
+    }
+
+    @Override
+    public void onClickItem(String text) {
+        excercisesList.add( new Item( text ) );
+        adapter = new RecyclerviewAdapter( excercisesList, getActivity().getBaseContext() );
+        layoutManager = new LinearLayoutManager( getActivity().getApplicationContext() );
+
+
+        mRecyclerView.setLayoutManager( layoutManager );
+        mRecyclerView.setAdapter( adapter );
     }
 
 
