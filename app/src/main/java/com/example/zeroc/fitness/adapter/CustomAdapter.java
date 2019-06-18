@@ -48,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             @Override
             public void onClick(View v) {
 //                Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
-//                onClickItemTab1.onClickItem("Item number " + position);
+//                onClickItemTab1.onClickItem("Item number " + listItem.get( position ).getName());
             }
         } );
     }
