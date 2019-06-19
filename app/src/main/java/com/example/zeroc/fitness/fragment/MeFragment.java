@@ -5,20 +5,19 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zeroc.fitness.LessionActivity;
 import com.example.zeroc.fitness.R;
-import com.example.zeroc.fitness.adapter.RecyclerviewAdapter;
+import com.example.zeroc.fitness.adapter.CustomListMeAdapter;
 import com.example.zeroc.fitness.model.Item;
-import com.example.zeroc.fitness.model.OnClickItemTab1;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -32,7 +31,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import java.util.ArrayList;
 
 
-public class MeFragment extends Fragment implements OnChartValueSelectedListener , OnClickItemTab1 {
+public class MeFragment extends Fragment implements OnChartValueSelectedListener {
     private PieChart mChart;
     private TextView tv1;
     private TextView tv2;
@@ -41,13 +40,15 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
     private Button btn2;
     private Button btnOnline;
 
-    RecyclerviewAdapter adapter;
-    ArrayList<Item> excercisesList = new ArrayList <Item>();
+    CustomListMeAdapter adapter;
+    ArrayList<Item> excercisesList = new ArrayList<Item>();
     ArrayList<Item> listitem = new ArrayList<Item>();
-    RecyclerView mRecyclerView;
+    ListView mlistView;
 
 
-    OnClickItemTab1 onClickItemTab1 = this;
+
+
+
     public MeFragment() {
         // Required empty public constructor
     }
@@ -61,10 +62,8 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
 //        }
 //    }
 
-    public OnClickItemTab1 getOnClickItemTab1() {
-        return onClickItemTab1;
-    }
-    public static MeFragment getInstance(){
+
+    public static MeFragment getInstance() {
         return new MeFragment();
     }
 
@@ -74,101 +73,106 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
         // Inflate the layout for this com.example.zeroc.fitness.fragment
 
 
-
-        View view = inflater.inflate( R.layout.fragment_me, container, false);
-        tv1 = view.findViewById(R.id.tvme);
-        tv2 = view.findViewById(R.id.tvme1);
-        btn1= view.findViewById(R.id.Buttonme);
+        View view = inflater.inflate( R.layout.fragment_me, container, false );
+        tv1 = view.findViewById( R.id.tvme );
+        tv2 = view.findViewById( R.id.tvme1 );
+        btn1 = view.findViewById( R.id.Buttonme );
         btnOnline = view.findViewById( R.id.btnYoutube );
-        btn1.setOnClickListener(new View.OnClickListener() {
+        mlistView = view.findViewById( R.id.recyclerViewListExPicked );
+        btn1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Fragment childFragment = new FragmentMyWork();
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame_container, childFragment).commit();
+                transaction.replace( R.id.frame_container, childFragment ).commit();
 
             }
-        });
-        mChart = view.findViewById(R.id.piechart);
-        mChart.setRotationEnabled(true);
-        mChart.setDescription(new Description());
-        mChart.setHoleRadius(35f);
-        mChart.setTransparentCircleAlpha(0);
-        mChart.setCenterText("Kalo");
-        mChart.setCenterTextSize(10);
-        mChart.setDrawEntryLabels(true);
-        mChart.setOnChartValueSelectedListener(this);
-        addDataSet(mChart);
+        } );
+        mChart = view.findViewById( R.id.piechart );
+        mChart.setRotationEnabled( true );
+        mChart.setDescription( new Description() );
+        mChart.setHoleRadius( 35f );
+        mChart.setTransparentCircleAlpha( 0 );
+        mChart.setCenterText( "Kalo" );
+        mChart.setCenterTextSize( 10 );
+        mChart.setDrawEntryLabels( true );
+        mChart.setOnChartValueSelectedListener( this );
+        addDataSet( mChart );
         btnOnline.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( getContext() , LessionActivity.class );
+                Intent intent = new Intent( getContext(), LessionActivity.class );
                 startActivity( intent );
             }
         } );
-        return view;
 
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            String a = bundle.getString( "nameMyWork" );
+            excercisesList.add( new Item( a ) );
+
+//            Toast.makeText( getActivity(), a, Toast.LENGTH_SHORT ).show();
+            Toast.makeText( getActivity(), String.valueOf( excercisesList.size() ), Toast.LENGTH_SHORT ).show();
+        }
+        // viet o day
+        mlistView.setAdapter( new CustomListMeAdapter( getActivity().getApplicationContext(), excercisesList ) );
+
+        return view;
 
 
     }
 
+    // duoc chua giao su oi
+    // chuyen man giưa 2 fragment dau ham chuyen man hinh ak
+    //uk dau
     @Override
     public void onValueSelected(Entry e, Highlight h) {
-        Toast.makeText(getContext(),"Value: "
+        Toast.makeText( getContext(), "Value: "
                 + e.getY()
                 + ", index: "
                 + h.getX()
                 + ", DataSet index: "
-                + h.getDataSetIndex(),Toast.LENGTH_SHORT).show();
+                + h.getDataSetIndex(), Toast.LENGTH_SHORT ).show();
     }
 
     @Override
     public void onNothingSelected() {
 
     }
+
     private static void addDataSet(PieChart pieChart) {
         ArrayList<PieEntry> yEntrys = new ArrayList<>();
         ArrayList<String> xEntrys = new ArrayList<>();
-        float[] yData = { 25, 40, 70 };
-        String[] xData = { "January", "February", "January" };
+        float[] yData = {25, 40, 70};
+        String[] xData = {"January", "February", "January"};
 
-        for (int i = 0; i < yData.length;i++){
-            yEntrys.add(new PieEntry(yData[i],i));
+        for (int i = 0; i < yData.length; i++) {
+            yEntrys.add( new PieEntry( yData[i], i ) );
         }
-        for (int i = 0; i < xData.length;i++){
-            xEntrys.add(xData[i]);
+        for (int i = 0; i < xData.length; i++) {
+            xEntrys.add( xData[i] );
         }
 
-        PieDataSet pieDataSet=new PieDataSet(yEntrys,"Bài Tập");
-        pieDataSet.setSliceSpace(2);
-        pieDataSet.setValueTextSize(12);
+        PieDataSet pieDataSet = new PieDataSet( yEntrys, "Bài Tập" );
+        pieDataSet.setSliceSpace( 2 );
+        pieDataSet.setValueTextSize( 12 );
 
-        ArrayList<Integer> colors=new ArrayList<>();
-        colors.add(Color.GRAY);
-        colors.add(Color.BLUE);
-        colors.add(Color.RED);
+        ArrayList<Integer> colors = new ArrayList<>();
+        colors.add( Color.GRAY );
+        colors.add( Color.BLUE );
+        colors.add( Color.RED );
 
-        pieDataSet.setColors(colors);
+        pieDataSet.setColors( colors );
 
-        Legend legend=pieChart.getLegend();
-        legend.setForm(Legend.LegendForm.CIRCLE);
-        legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
+        Legend legend = pieChart.getLegend();
+        legend.setForm( Legend.LegendForm.CIRCLE );
+        legend.setPosition( Legend.LegendPosition.LEFT_OF_CHART );
 
-        PieData pieData=new PieData(pieDataSet);
-        pieChart.setData(pieData);
+        PieData pieData = new PieData( pieDataSet );
+        pieChart.setData( pieData );
         pieChart.invalidate();
     }
 
-    @Override
-    public void onClickItem(String text) {
-        excercisesList.add( new Item( text ) );
-        adapter = new RecyclerviewAdapter( excercisesList, getActivity().getBaseContext() );
-        layoutManager = new LinearLayoutManager( getActivity().getApplicationContext() );
-
-
-        mRecyclerView.setLayoutManager( layoutManager );
-        mRecyclerView.setAdapter( adapter );
-    }
 
 
 //    // TODO: Rename method, update argument and hook method into UI event

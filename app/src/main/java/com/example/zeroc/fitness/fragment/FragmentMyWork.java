@@ -2,14 +2,16 @@ package com.example.zeroc.fitness.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.zeroc.fitness.R;
-import com.example.zeroc.fitness.adapter.CustomAdapter;
+import com.example.zeroc.fitness.adapter.CustomListAdapter;
 import com.example.zeroc.fitness.model.Item;
 import com.example.zeroc.fitness.model.OnClickItemTab1;
 
@@ -19,20 +21,20 @@ import Database.DatabaseHelper;
 
 public class FragmentMyWork extends Fragment {
 
-    CustomAdapter adapter;
+    //    CustomAdapter adapter;
     OnClickItemTab1 onClickItemTab1;
 
 
     ArrayList<Item> excercisesList = new ArrayList<Item>();
     ArrayList<Item> listitem = new ArrayList<Item>();
-    private RecyclerView recyclerViewListExChoosen;
+    private ListView recyclerViewListExChoosen;
 
 
     public void setOnClickItemTab1(OnClickItemTab1 onClickItemTab1) {
         this.onClickItemTab1 = onClickItemTab1;
     }
 
-    public static FragmentMyWork getInstance(){
+    public static FragmentMyWork getInstance() {
         return new FragmentMyWork();
     }
 
@@ -42,19 +44,37 @@ public class FragmentMyWork extends Fragment {
         View view = inflater.inflate( R.layout.item_lession, container, false );
 
         recyclerViewListExChoosen = view.findViewById( R.id.recyclerViewListExChoosen );
-        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager manager = new LinearLayoutManager( getContext(), LinearLayoutManager.VERTICAL, false );
 
         InitData();
-        adapter = new CustomAdapter( excercisesList , getContext() , onClickItemTab1 );
-        recyclerViewListExChoosen.setAdapter( adapter );
-        recyclerViewListExChoosen.setLayoutManager( manager );
+//        adapter = new CustomAdapter( excercisesList , getContext() , onClickItemTab1 );
+//        recyclerViewListExChoosen.setAdapter( adapter );
+//        recyclerViewListExChoosen.setLayoutManager( manager );   ddc roi check inbox di
 
-//        recyclerViewListExChoosen.setAdapter( new CustomListAdapter( getActivity().getApplicationContext(), excercisesList ) );
 
+
+
+        recyclerViewListExChoosen.setAdapter( new CustomListAdapter( getActivity().getApplicationContext(), excercisesList ) );
+        recyclerViewListExChoosen.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                MeFragment meFragment = new MeFragment();
+
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace( R.id.frame_container, meFragment );
+                transaction.commit();
+
+                Bundle bundle = new Bundle();
+                bundle.putString( "nameMyWork", excercisesList.get( position ).getName() );
+                meFragment.setArguments( bundle );
+
+
+            }
+        } );
 
         return view;
     }
-
 
 
 //  public boolean check(String search){
