@@ -8,30 +8,25 @@
     tools:context=".fragment.MeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/frame_container"
+        android:layout_height="wrap_content">
 
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_weight="2"
-    android:id="@+id/frame_container"
-    android:layout_height="wrap_content">
+    </FrameLayout>
 
-<LinearLayout
-    android:id="@+id/lnear"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:weightSum="5"
-    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="7"
-        android:layout_height="wrap_content">
+        android:weightSum="7">
+
         <TextView
             android:id="@+id/tvme"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="Thiết lập bài tập cá nhân"
             android:textColor="@color/red"
             android:textSize="20dp" />
@@ -46,26 +41,22 @@
             android:text="+" />
     </LinearLayout>
 
-   <android.support.v7.widget.RecyclerView
-       android:id="@+id/recyclerViewListExPicked"
-       android:layout_gravity="center"
-       android:foregroundGravity="center"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
 
-   </android.support.v7.widget.RecyclerView>
     <TextView
         android:layout_width="match_parent"
         android:text="Danh sách bài tập cá nhân"
         android:textSize="20dp"
         android:textColor="@color/red"
         android:layout_height="wrap_content" />
-</LinearLayout>
 
+    <ListView
+        android:id="@+id/recyclerViewListExPicked"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_gravity="center"
+        android:foregroundGravity="center">
 
-
-</FrameLayout>
-
+    </ListView>
     <TextView
         android:layout_width="wrap_content"
         android:textSize="20dp"
@@ -75,16 +66,17 @@
         android:textColor="@color/red"
         android:text="Biểu đồ theo dõi mục tiêu trong ngày"
         android:layout_height="wrap_content" />
+
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/piechart"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_height="245dp"
+        android:layout_marginTop="20dp" />
     <Button
         android:id="@+id/btnYoutube"
         android:text="Online Excercises"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 
 </LinearLayout>

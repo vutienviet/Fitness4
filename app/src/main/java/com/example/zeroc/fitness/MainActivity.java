@@ -15,8 +15,9 @@ import com.example.zeroc.fitness.fragment.FragmentMyWork;
 import com.example.zeroc.fitness.fragment.MeFragment;
 import com.example.zeroc.fitness.fragment.ReportFragment;
 import com.example.zeroc.fitness.fragment.TrainingFragment;
+import com.example.zeroc.fitness.model.OnClickItemTab1;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnClickItemTab1 {
     private TabLayout tabLayoutMain;
     public ViewPager viewPagerMain;
     private ListView lvMain;
@@ -39,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AnhXa();
 
-        fragment2 = MeFragment.getInstance();
-        fragment1 = FragmentMyWork.getInstance();
-
+//        fragment2 = MeFragment.getInstance();
+//        fragment1 = FragmentMyWork.getInstance();
+//        fragment1.setOnClickItemTab1( fragment2.getOnClickItemTab1() );
 
     }
 
@@ -107,4 +108,9 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
-  }
+
+    @Override
+    public void onClickItem(String text) {
+        
+    }
+}
