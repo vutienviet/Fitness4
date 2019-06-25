@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.zeroc.fitness.R;
 import com.example.zeroc.fitness.adapter.CustomListAdapter;
@@ -67,6 +68,7 @@ public class FragmentMyWork extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putString( "nameMyWork", excercisesList.get( position ).getName() );
+                Toast.makeText( getActivity() , String.valueOf( excercisesList.size() ) , Toast.LENGTH_SHORT ).show();
                 meFragment.setArguments( bundle );
 
 

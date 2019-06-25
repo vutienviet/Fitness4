@@ -46,9 +46,6 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
     ListView mlistView;
 
 
-
-
-
     public MeFragment() {
         // Required empty public constructor
     }
@@ -110,12 +107,11 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
         if (bundle != null) {
             String a = bundle.getString( "nameMyWork" );
             excercisesList.add( new Item( a ) );
-
-//            Toast.makeText( getActivity(), a, Toast.LENGTH_SHORT ).show();
-            Toast.makeText( getActivity(), String.valueOf( excercisesList.size() ), Toast.LENGTH_SHORT ).show();
+            Toast.makeText( getActivity(), a, Toast.LENGTH_SHORT ).show();
         }
-        // viet o day
+//
         mlistView.setAdapter( new CustomListMeAdapter( getActivity().getApplicationContext(), excercisesList ) );
+
 
         return view;
 
@@ -172,7 +168,6 @@ public class MeFragment extends Fragment implements OnChartValueSelectedListener
         pieChart.setData( pieData );
         pieChart.invalidate();
     }
-
 
 
 //    // TODO: Rename method, update argument and hook method into UI event

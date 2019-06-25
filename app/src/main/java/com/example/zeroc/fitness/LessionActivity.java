@@ -26,16 +26,12 @@ import java.util.ArrayList;
 public class LessionActivity extends AppCompatActivity {
 
     private ListView lv1;
-//    FirebaseDatabase database;
-//    DatabaseReference myRef;
-//    DatabaseReference allRef;
-//    ArrayList<Item> arryList;
-//    ListviewLessionAdapter adapter;
     private final String TAG = "LessionActivity";
 
-   public static String API_KEY = "AIzaSyCTfRXNjQVbrrrqKxsZaRi1fMRbUqXAEHo";
+   public static String API_KEY = "AIzaSyCTfRXNjQVbrrrqKxsZaRi1fMRbUqXAEHo"; // API YOUTUBE
     String listID = "PL_xM2_zr4dWKliSdpJdePY9fqmJq0Uq-6";
     String urlGetJson = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL_xM2_zr4dWKliSdpJdePY9fqmJq0Uq-6&key=AIzaSyCTfRXNjQVbrrrqKxsZaRi1fMRbUqXAEHo&maxResults=50";
+    // Lay urlJson
 
     ListView lvVideo;
     ArrayList<Videos> videos;
@@ -46,9 +42,9 @@ public class LessionActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_lession );
 
-        lvVideo = findViewById( R.id.lv1 );
-        videos = new ArrayList<>();
-        adapter = new VideosAdapter( LessionActivity.this, R.layout.videos, videos );
+        lvVideo = findViewById( R.id.lv1 ); // khai bao
+        videos = new ArrayList<>();   //khai bao
+        adapter = new VideosAdapter( LessionActivity.this, R.layout.videos, videos ); // khai bao
         lvVideo.setAdapter( adapter );
         GetJsonYoutbe( urlGetJson );
 
@@ -107,7 +103,7 @@ public class LessionActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText( LessionActivity.this, response.toString(), Toast.LENGTH_SHORT ).show();
+//                Toast.makeText( LessionActivity.this, response.toString(), Toast.LENGTH_SHORT ).show();
             }
         }, new Response.ErrorListener() {
             @Override

@@ -16,7 +16,10 @@ public class PlayYoutubeVideoActivity extends YouTubeBaseActivity implements You
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_play_youtube_video );
+
+
         youTubePlayerView = findViewById(R.id.myYoutube);
+
         Intent intent = getIntent();
         id = intent.getStringExtra("idVideo");
         youTubePlayerView.initialize(LessionActivity.API_KEY,this);
